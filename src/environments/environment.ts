@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   appName: window['env']['appName'] || 'angular-ms',
   appVersion: window['env']['appVersion'] || '0.0.1',
-  apiUrl: window['env']['apiUrl'] || 'default',
+  apiUrl: window['env']['apiUrl'] || 'http://localhost:8090/',
   debug: window['env']['debug'] || false,
 };
 

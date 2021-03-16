@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-
+import { environment } from '../environments/environment';
 @Injectable()
 export class CartService {
   items = [];
   constructor(private http: HttpClient) {}
+
+  public apiUrl = environment.apiUrl;
 
   addToCart(product) {
     this.items.push(product);
@@ -21,7 +23,15 @@ export class CartService {
 
   getShippingPrices() {
     return this.http.get<{ type: string; price: number }[]>(
-      "/assets/shipping.json"
+      '/assets/shipping.json'
     );
+  }
+
+  getLocation() {
+    let url = this.apiUrl + 'v1/general/example';
+    // let options = {
+    //   responseType: 'text',
+    // };
+    return this.http.get<any>(url)
   }
 }
